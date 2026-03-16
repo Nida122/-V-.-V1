@@ -1,0 +1,260 @@
+/* =================================================
+   基本レイアウト
+================================================= */
+
+body {
+    background: #000;
+    color: #cfcfcf;
+    font-family: Courier New, monospace;
+
+    margin: 0;
+    padding: 40px;
+}
+
+.container {
+    max-width: 720px;
+    margin: auto;
+    position: relative;
+    z-index: 5;
+}
+
+
+/* =================================================
+   見出し
+================================================= */
+
+h1 {
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+
+/* =================================================
+   ナビゲーション
+================================================= */
+
+nav {
+    margin-bottom: 30px;
+}
+
+nav a {
+    margin-right: 15px;
+    color: #7fd0ff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* =================================================
+   リスト
+================================================= */
+
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.list li {
+    margin: 6px 0;
+}
+
+
+/* =================================================
+   フッター
+================================================= */
+
+footer {
+    margin-top: 50px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+
+/* =================================================
+   BOOT画面
+================================================= */
+
+#boot-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: black;
+    color: #8fdfff;
+
+    padding: 40px;
+
+    z-index: 9999;
+}
+
+
+/* =================================================
+   GIF背景
+================================================= */
+
+#bg-gifs {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+.bg-gif {
+    position: absolute;
+    opacity: 0.35;
+    mix-blend-mode: screen;
+}
+
+
+/* =================================================
+   CRTスキャンライン
+================================================= */
+
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,0.03) 0px,
+        rgba(255,255,255,0.03) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+}
+
+
+/* =================================================
+   粒子エフェクト
+================================================= */
+
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+
+/* =================================================
+   ログストリーム
+================================================= */
+
+#log-stream {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+
+    font-size: 11px;
+    color: #66cfff;
+
+    opacity: 0.8;
+}
+
+
+/* =================================================
+   エラー表示
+================================================= */
+
+#error-box {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    color: #ff6666;
+    font-size: 12px;
+}
+
+
+/* =================================================
+   グリッチアニメーション
+================================================= */
+
+.glitch {
+    animation: glitch 0.25s;
+}
+
+@keyframes glitch {
+    0%   { transform: translate(0) }
+    25%  { transform: translate(-4px, 2px) }
+    50%  { transform: translate(4px, -2px) }
+    75%  { transform: translate(-2px, 2px) }
+    100% { transform: translate(0) }
+}
+
+/* =========================
+   SYSTEM LOG
+========================= */
+
+.system-log{
+	margin-top:30px;
+	padding:15px;
+	border:1px solid rgba(255,255,255,0.1);
+	background:rgba(0,0,0,0.25);
+	font-family:monospace;
+	font-size:12px;
+	letter-spacing:1px;
+}
+
+.sysline{
+	opacity:0.7;
+	line-height:1.7;
+}
+
+/* =========================
+   ARCHIVE DATA ID
+========================= */
+
+.data-id{
+	font-family:monospace;
+	font-size:11px;
+	opacity:0.6;
+	margin-right:10px;
+	letter-spacing:1px;
+}
+
+/* =========================
+   USER ID
+========================= */
+
+#user-id{
+	font-family:monospace;
+	letter-spacing:2px;
+}
+
+/* =================================
+   CUSTOM CURSOR
+================================= */
+
+/* サイト全体でOSカーソルを消す */
+
+html, body, a, button, input, textarea {
+    cursor: none !important;
+}
+
+
+/* リンクホバー演出 */
+
+a:hover {
+    text-shadow: 0 0 6px rgba(120,200,255,0.8);
+}
