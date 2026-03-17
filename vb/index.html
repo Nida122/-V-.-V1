@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DATA ACCESS | ▜▚V▙墓所.</title>
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/stylevb.css">
+</head>
+
+<body>
+
+<!-- 背景 -->
+<div id="bg-gifs"></div>
+<div class="scanlines"></div>
+<canvas id="particle-canvas"></canvas>
+
+<!-- アクセス演出 -->
+<div id="access-screen">
+	<p id="access-text">INITIALIZING...</p>
+</div>
+
+<div class="container" id="vb-content" style="display:none;">
+
+<header>
+<h1>▜▚V▙墓所. -DATA ACCESS</h1>
+</header>
+
+<main class="vb-page">
+
+	<span id="vb-id"></span>
+	<h2 id="vb-name"></h2>
+
+	<img id="vb-image">
+
+	<p id="vb-desc"></p>
+
+	<!-- プレイヤー -->
+	<div class="vb-player">
+		<button id="vb-play">▶</button>
+
+		<div class="vb-bar">
+			<div id="vb-progress"></div>
+		</div>
+
+		<span id="vb-time">00:00</span>
+	</div>
+
+	<!-- 常時表示ビジュアライザ -->
+	<canvas id="vb-visualizer" width="320" height="40"></canvas>
+
+	<audio id="vb-audio"></audio>
+
+	<a id="vb-download">DL</a>
+
+	<a href="../characters.html">BACK ←</a>
+
+</main>
+
+</div>
+
+<script src="../js/effects.js"></script>
+<script src="vb.js"></script>
+
+</body>
+</html>

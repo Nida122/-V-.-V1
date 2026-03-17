@@ -1,0 +1,33 @@
+{
+  "vb-001": {
+    "name": "[2do]",
+    "desc": "元現実世界の存在。",
+    "image": "../images/characters/2do.png",
+    "audio": "../vb/audio/2do_sample.wav",
+    "bg": "GIF/bg2.gif"
+  },
+
+  "vb-002": {
+    "name": "[尾古枝]",
+    "desc": "元現実世界の存在。\n外部干渉に対して過敏な反応を示す。",
+    "image": "../images/characters/osabu.png",
+    "audio": "../vb/audio/osabu_sample.wav",
+    "bg": "GIF/bg3.gif"
+  },
+
+  "vb-003": {
+    "name": "[212]",
+    "desc": "観測者的ポジションに位置する存在。",
+    "image": "../images/characters/212.png",
+    "audio": "../vb/audio/212_sample.wav",
+    "bg": "GIF/bg4.gif"
+  },
+
+  "vb-004": {
+    "name": "[oso]",
+    "desc": "人間のエゴで生まれた存在。\n完全電脳生成体。外界経験は存在しない。",
+    "image": "../images/characters/oso.png",
+    "audio": "../vb/audio/oso_sample.wav",
+    "bg": "GIF/bg1.gif"
+  }
+}
