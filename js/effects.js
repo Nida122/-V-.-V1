@@ -1,6 +1,4 @@
-/* =================================================
-   BOOT画面
-================================================= */
+/* BOOT画面 */
 
 const boot = document.getElementById("boot-screen");
 
@@ -10,14 +8,12 @@ if (boot) {
 
 		boot.style.display = "none";
 
-	}, 3000);
+	}, 500);
 
 }
 
 
-/* =================================================
-   GIF背景
-================================================= */
+/* GIF背景 */
 
 const gifs = [
 	"images/bg1.gif",
@@ -55,9 +51,7 @@ if (container) {
 }
 
 
-/* =================================================
-   CYBER SCAN CURSOR UI
-================================================= */
+/* CYBER SCAN CURSOR UI */
 
 const canvas = document.getElementById("particle-canvas");
 
@@ -78,9 +72,7 @@ let linkHover = false;
 const userID = "USR-" + Math.floor(Math.random()*90000+10000);
 
 
-/* ================================
-   画面サイズ
-================================ */
+/* 画面サイズ */
 
 window.addEventListener("resize",()=>{
 
@@ -90,9 +82,7 @@ canvas.height = window.innerHeight;
 });
 
 
-/* ================================
-   マウス移動
-================================ */
+/* マウス移動 */
 
 window.addEventListener("mousemove",e=>{
 
@@ -120,9 +110,7 @@ life:50
 });
 
 
-/* ================================
-   LINK 判定
-================================ */
+/* LINK 判定 */
 
 document.querySelectorAll("a").forEach(link=>{
 
@@ -141,9 +129,7 @@ linkHover = false;
 });
 
 
-/* ================================
-   粒子描画
-================================ */
+/* 粒子描画 */
 
 function drawParticles(){
 
@@ -175,9 +161,7 @@ particles.splice(i,1);
 }
 
 
-/* ================================
-   スキャナー
-================================ */
+/* スキャナー */
 
 function drawScanner(){
 
@@ -230,9 +214,7 @@ ctx.stroke();
 }
 
 
-/* ================================
-   UI文字
-================================ */
+/* UI文字 */
 
 function drawUI(){
 
@@ -259,9 +241,7 @@ ctx.fillText(userID,mouseX+18,mouseY+18);
 }
 
 
-/* ================================
-   アニメーション
-================================ */
+/* アニメーション */
 
 function animate(){
 
@@ -280,9 +260,7 @@ animate();
 }
 
 
-/* =================================================
-   NODE ACCESS LOG
-================================================= */
+/* NODE ACCESS LOG */
 
 const nodeMap = {
 
@@ -317,9 +295,7 @@ if (logBox) {
 }
 
 
-/* =================================================
-   ログストリーム
-================================================= */
+/* ログストリーム */
 
 const logs = [
 	"connection established",
@@ -356,20 +332,34 @@ if (logBox) {
 }
 
 
-/* =================================================
-   エラー表示
-================================================= */
+/* エラー表示 */
 
 const errors = [
 
-	"SYSTEM WARNING : sector unstable",
-	"SYSTEM WARNING : packet loss detected",
-	"SYSTEM WARNING : memory fragment detected",
-	"SYSTEM WARNING : signal corruption",
-	"SYSTEM WARNING : archive corruption detected",
-	"SYSTEM WARNING : neural storage delay",
-	"SYSTEM WARNING : node response timeout",
-	"SYSTEM WARNING : unknown archive signal"
+    "SYSTEM WARNING : sector unstable",
+    "SYSTEM WARNING : packet loss detected",
+    "SYSTEM WARNING : memory fragment detected",
+    "SYSTEM WARNING : signal corruption",
+    "SYSTEM WARNING : archive corruption detected",
+    "SYSTEM WARNING : neural storage delay",
+    "SYSTEM WARNING : node response timeout",
+    "SYSTEM WARNING : unknown archive signal",
+    "SYSTEM WARNING : unknown entity reference",
+    "SYSTEM WARNING : presence signal lost",
+    "SYSTEM WARNING : entity absent",
+
+    "SYSTEM WARNING : user context undefined",
+    "SYSTEM WARNING : reality node missing",
+    "SYSTEM WARNING : self-reference corrupted",
+    "SYSTEM WARNING : simulation integrity compromised",
+    "SYSTEM WARNING : unknown observer detected",
+    "SYSTEM WARNING : memory of existence lost",
+    "SYSTEM WARNING : recursive loop detected",
+    "SYSTEM WARNING : timeline anomaly detected",
+    "SYSTEM WARNING : phantom entity detected",
+    "SYSTEM WARNING : consciousness not registered",
+    "SYSTEM WARNING : file of self inaccessible",
+    "SYSTEM WARNING : existential signature invalid"
 
 ];
 
@@ -400,9 +390,7 @@ if (errorBox) {
 }
 
 
-/* =================================================
-   ページ遷移グリッチ
-================================================= */
+/* ページ遷移グリッチ */
 
 document.querySelectorAll("a").forEach(link => {
 
@@ -416,16 +404,14 @@ document.querySelectorAll("a").forEach(link => {
 
 			location.href = this.href;
 
-		}, 200);
+		}, 45);
 
 	});
 
 });
 
 
-/* =================================================
-   アクセスカウンター
-================================================= */
+/* アクセスカウンター */
 
 const counter = document.getElementById("counter");
 
@@ -450,9 +436,7 @@ if (counter) {
 }
 
 
-/* =================================================
-   USER ID GENERATOR
-================================================= */
+/* USER ID GENERATOR */
 
 function generateUserID(){
 
