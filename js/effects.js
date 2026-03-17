@@ -40,8 +40,8 @@ if (container) {
 		img.src = gifs[Math.floor(Math.random() * gifs.length)];
 		img.className = "bg-gif";
 
-		const x = 50 + (Math.random() - 0.5) * 40;
-		const y = 50 + (Math.random() - 0.5) * 40;
+		const x = 50 + (Math.random() - 0.5) * 60;
+		const y = 50 + (Math.random() - 0.5) * 60;
 
 		img.style.left = x + "%";
 		img.style.top = y + "%";
