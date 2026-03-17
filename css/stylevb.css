@@ -1,0 +1,182 @@
+/* ===============================
+   VB PAGE
+=============================== */
+
+.vb-page {
+	max-width: 600px;
+	margin: 40px auto;
+	text-align: center;
+}
+
+#vb-id {
+	font-size: 12px;
+	color: #888;
+	letter-spacing: 1px;
+}
+
+#vb-name {
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+#vb-image {
+	display: block;
+	width: 40%;
+	max-width: 260px;
+	margin: 20px auto;
+	border: 1px solid #444;
+	background: #111;
+	padding: 4px;
+}
+
+#vb-desc {
+	color: #aaa;
+	font-size: 13px;
+	margin-bottom: 20px;
+}
+
+/* ===============================
+   PLAYER
+=============================== */
+
+.vb-player {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 20px auto 10px;
+	width: 60%;
+	max-width: 320px;
+}
+
+#vb-play {
+	background: black;
+	color: #0f0;
+	border: 1px solid #0f0;
+	padding: 5px 10px;
+	cursor: pointer;
+	font-family: monospace;
+}
+
+#vb-play:hover {
+	background: #0f0;
+	color: black;
+}
+
+.vb-bar {
+	flex: 1;
+	height: 6px;
+	background: #222;
+	border: 1px solid #555;
+	position: relative;
+	cursor: pointer;
+}
+
+#vb-progress {
+	height: 100%;
+	width: 0%;
+	background: #0f0;
+	box-shadow: 0 0 5px #0f0;
+}
+
+#vb-time {
+	font-size: 11px;
+	color: #888;
+	min-width: 40px;
+	text-align: right;
+}
+
+/* ===============================
+   VISUALIZER
+=============================== */
+
+#vb-visualizer {
+	display: block;
+	margin: 10px auto 20px;
+	width: 60%;
+	max-width: 320px;
+	height: 40px;
+
+	background: black;
+	border: 1px solid #0f0;
+
+	image-rendering: pixelated;
+
+	box-shadow:
+		0 0 8px #0f0,
+		inset 0 0 6px #0f0;
+
+	position: relative;
+	overflow: hidden;
+}
+
+/* スキャンライン */
+#vb-visualizer::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: repeating-linear-gradient(
+		to bottom,
+		transparent,
+		transparent 2px,
+		rgba(0,255,0,0.08) 3px
+	);
+	pointer-events: none;
+}
+
+/* 再生中 */
+#vb-visualizer.active {
+	box-shadow:
+		0 0 12px #0f0,
+		inset 0 0 10px #0f0;
+}
+
+/* スリープ状態 */
+#vb-visualizer.sleep {
+	opacity: 0.35;
+	filter: blur(0.5px);
+	box-shadow:
+		0 0 3px #0f0,
+		inset 0 0 3px #0f0;
+}
+
+/* ===============================
+   DL / BACK / ACCESS
+=============================== */
+
+#vb-download {
+	display: block;
+	text-align: center;
+	border: 1px solid #777;
+	padding: 8px;
+	color: #fff;
+	text-decoration: none;
+	margin-top: 15px;
+}
+
+#vb-download:hover {
+	background: #fff;
+	color: #000;
+}
+
+.vb-page a[href*="characters"] {
+	font-size: 12px;
+	color: #888;
+	text-decoration: none;
+	display: inline-block;
+	margin-top: 20px;
+}
+
+#access-screen {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: black;
+	color: #0f0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: monospace;
+	z-index: 9999;
+}
