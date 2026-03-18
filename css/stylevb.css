@@ -1,6 +1,4 @@
-/* ===============================
-   VB PAGE
-=============================== */
+/* VB ページ */
 
 .vb-page {
 	max-width: 600px;
@@ -35,9 +33,7 @@
 	margin-bottom: 20px;
 }
 
-/* ===============================
-   PLAYER
-=============================== */
+/* PLAYER */
 
 .vb-player {
 	display: flex;
@@ -85,9 +81,7 @@
 	text-align: right;
 }
 
-/* ===============================
-   VISUALIZER
-=============================== */
+/* VISUALIZER */
 
 #vb-visualizer {
 	display: block;
@@ -139,9 +133,7 @@
 		inset 0 0 3px #0f0;
 }
 
-/* ===============================
-   DL / BACK / ACCESS
-=============================== */
+/* DL / BACK / ACCESS */
 
 #vb-download {
 	display: block;
