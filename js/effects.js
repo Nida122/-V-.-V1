@@ -16,11 +16,11 @@ if (boot) {
 /* GIF背景 */
 
 const gifs = [
-	"../images/gif/bg1.gif",
-	"../images/gif/bg2.gif",
-	"../images/gif/bg3.gif",
-	"../images/gif/bg4.gif",
-	"../images/gif/bg5.gif"
+	"images/gif/bg1.gif",
+	"images/gif/bg2.gif",
+	"images/gif/bg3.gif",
+	"images/gif/bg4.gif",
+	"images/gif/bg5.gif"
 ];
 
 const container = document.getElementById("bg-gifs");
