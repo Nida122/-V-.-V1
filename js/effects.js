@@ -15,12 +15,14 @@ if (boot) {
 
 /* GIF背景 */
 
+const base = location.pathname.split("/")[1];
+
 const gifs = [
-	"/-V-.-V1/images/GIF/bg1.gif",
-	"/-V-.-V1/images/GIF/bg2.gif",
-	"/-V-.-V1/images/GIF/bg3.gif",
-	"/-V-.-V1/images/GIF/bg4.gif",
-	"/-V-.-V1/images/GIF/bg5.gif"
+	`/${base}/images/GIF/bg1.gif`,
+	`/${base}/images/GIF/bg2.gif`,
+	`/${base}/images/GIF/bg3.gif`,
+	`/${base}/images/GIF/bg4.gif`,
+	`/${base}/images/GIF/bg5.gif`
 ];
 
 const container = document.getElementById("bg-gifs");
