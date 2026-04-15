@@ -58,7 +58,7 @@ function loadVB(vb, id){
 	document.getElementById("vb-desc").innerText = vb.desc;
 
 	document.getElementById("vb-image").src = vb.image;
-	document.getElementById("vb-download").href = vb.audio;
+	document.getElementById("vb-download").href = vb.dl;
 
 	const audio = document.getElementById("vb-audio");
 	const playBtn = document.getElementById("vb-play");
@@ -70,10 +70,7 @@ function loadVB(vb, id){
 
 	audio.src = vb.audio;
 
-	// ===============================
 	// PLAYER
-	// ===============================
-
 	playBtn.onclick = () => {
 		if (audio.paused) {
 			audio.play();
@@ -103,10 +100,7 @@ function loadVB(vb, id){
 		progress.style.width = "0%";
 	};
 
-	// ===============================
 	// VISUALIZER
-	// ===============================
-
 	const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 	const src = audioCtx.createMediaElementSource(audio);
 	const analyser = audioCtx.createAnalyser();
