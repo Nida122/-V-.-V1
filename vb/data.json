@@ -1,7 +1,7 @@
 {
   "vb-001": {
     "name": "[2do]",
-    "desc": "元現実世界の存在。",
+    "desc": "元現実世界の存在。八屋と名乗っていた頃から212のオトモダチ",
     "image": "../images/characters/2do.png",
     "audio": "../vb/audio/2do_sample.wav",
     "bg": "../images/gif/bg2.gif",
@@ -10,7 +10,7 @@
 
   "vb-002": {
     "name": "[尾古枝]",
-    "desc": "元現実世界の存在。\n世に別れを告げたはずだった。",
+    "desc": "元現実世界の存在。\n生きてる頃は笑顔の絶えない幸せな教授だったらしい。",
     "image": "../images/characters/osabu.png",
     "audio": "../vb/audio/osabu_sample.wav",
     "bg": "../images/gif/bg3.gif",
@@ -19,7 +19,7 @@
 
   "vb-003": {
     "name": "[212]",
-    "desc": "2doのイマジナリーフレンドだった。",
+    "desc": "2doのオトモダチ。灰色からうまれ、はじめからいる",
     "image": "../images/characters/212.png",
     "audio": "../vb/audio/212_sample.wav",
     "bg": "../images/gif/bg4.gif",
@@ -28,7 +28,7 @@
 
   "vb-004": {
     "name": "[oso]",
-    "desc": "2doと212に作られた存在。\n完全電脳生成体。外界経験は存在しない。",
+    "desc": "電子アラームから作られた電脳生成体。\n2doと212の作品で、片腕がない。",
     "image": "../images/characters/oso.png",
     "audio": "../vb/audio/oso_sample.wav",
     "bg": "../images/gif/bg1.gif",
