@@ -1,4 +1,6 @@
-// ===============================
+
+/* ===================== INIT ===================== */
+
 const params = new URLSearchParams(location.search);
 const id = params.get("id");
 
@@ -6,9 +8,10 @@ const accessText = document.getElementById("access-text");
 const accessScreen = document.getElementById("access-screen");
 const content = document.getElementById("vb-content");
 
-// ===============================
+/* ===================== LOAD ===================== */
+
 fetch("data.json")
-.then(res => res.json())
+.then(r => r.json())
 .then(data => {
 
 	const vb = data[id];
@@ -21,7 +24,8 @@ fetch("data.json")
 	startAccess(vb, id);
 });
 
-// ===============================
+/* ===================== ACCESS ===================== */
+
 function startAccess(vb, id){
 
 	let step = 0;
@@ -34,8 +38,7 @@ function startAccess(vb, id){
 
 	const interval = setInterval(() => {
 
-		accessText.textContent = logs[step];
-		step++;
+		accessText.textContent = logs[step++];
 
 		if (step >= logs.length) {
 			clearInterval(interval);
@@ -50,7 +53,8 @@ function startAccess(vb, id){
 	}, 600);
 }
 
-// ===============================
+/* ===================== MAIN ===================== */
+
 function loadVB(vb, id){
 
 	document.getElementById("vb-id").textContent = id.toUpperCase();
@@ -60,159 +64,185 @@ function loadVB(vb, id){
 	document.getElementById("vb-image").src = vb.image;
 	document.getElementById("vb-download").href = vb.dl;
 
+	/* SPEC */
+	document.getElementById("vb-type").textContent = vb.type || "-";
+	document.getElementById("vb-format").textContent = vb.format || "-";
+	document.getElementById("vb-pitch").textContent = vb.pitch || "-";
+	document.getElementById("vb-original").textContent = vb.original || "-";
+	document.getElementById("vb-illustration").textContent = vb.illustration || "-";
+	document.getElementById("vb-author").textContent = vb.author || "-";
+
+	/* YOUTUBE */
+	const video = document.getElementById("vb-video");
+	const box = document.getElementById("vb-video-box");
+
+	if (vb.youtube) {
+		video.src = `https://www.youtube.com/embed/${vb.youtube}`;
+		box.style.display = "block";
+	} else {
+		box.style.display = "none";
+	}
+
+	/* AUDIO */
 	const audio = document.getElementById("vb-audio");
-	const playBtn = document.getElementById("vb-play");
-	const progress = document.getElementById("vb-progress");
+	const play = document.getElementById("vb-play");
 	const bar = document.querySelector(".vb-bar");
+	const progress = document.getElementById("vb-progress");
 	const time = document.getElementById("vb-time");
-	const canvas = document.getElementById("vb-visualizer");
-	const ctx = canvas.getContext("2d");
 
 	audio.src = vb.audio;
 
-	// PLAYER
-	playBtn.onclick = () => {
-		if (audio.paused) {
-			audio.play();
-			playBtn.textContent = "■";
-		} else {
-			audio.pause();
-			playBtn.textContent = "▶";
-		}
+	play.onclick = () => {
+		audio.paused ? audio.play() : audio.pause();
+		play.textContent = audio.paused ? "▶" : "■";
 	};
 
 	audio.ontimeupdate = () => {
 		if (!audio.duration) return;
-
-		const percent = (audio.currentTime / audio.duration) * 100;
-		progress.style.width = percent + "%";
+		progress.style.width = (audio.currentTime / audio.duration) * 100 + "%";
 		time.textContent = formatTime(audio.currentTime);
 	};
 
-	bar.onclick = (e) => {
-		const rect = bar.getBoundingClientRect();
-		const ratio = (e.clientX - rect.left) / rect.width;
-		audio.currentTime = ratio * audio.duration;
+	bar.onclick = e => {
+		const r = bar.getBoundingClientRect();
+		audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
 	};
 
-	audio.onended = () => {
-		playBtn.textContent = "▶";
-		progress.style.width = "0%";
-	};
+	/* BACKGROUND */
+	
+const bg = document.getElementById("bg-gifs");
+bg.innerHTML = "";
 
-	// VISUALIZER
-	const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-	const src = audioCtx.createMediaElementSource(audio);
-	const analyser = audioCtx.createAnalyser();
+// 配列対応（単体でもOK）
+const bgList = Array.isArray(vb.bg) ? vb.bg : [vb.bg];
 
-	src.connect(analyser);
-	analyser.connect(audioCtx.destination);
+// 表示数
+const COUNT = 10;
 
-	analyser.fftSize = 128;
+// ランダム生成
+for (let i = 0; i < COUNT; i++) {
 
-	const bufferLength = analyser.frequencyBinCount;
-	const dataArray = new Uint8Array(bufferLength);
+	const img = document.createElement("img");
+	img.className = "bg-gif";
 
-	let lastActiveTime = Date.now();
-	let sleep = false;
+	// ランダムGIF
+	img.src = bgList[Math.floor(Math.random() * bgList.length)];
 
-	function draw(){
+	// ランダム位置（画面全体）
+	const x = Math.random() * 100;
+	const y = Math.random() * 100;
 
-		analyser.getByteFrequencyData(dataArray);
+	img.style.left = x + "vw";
+	img.style.top = y + "vh";
 
-		ctx.fillStyle = "black";
-		ctx.fillRect(0, 0, canvas.width, canvas.height);
+	// ランダムサイズ
+	const size = 40 + Math.random() * 180;
+	img.style.width = size + "px";
 
-		const centerY = canvas.height / 2;
-		const barWidth = (canvas.width / bufferLength) * 2.5;
+	// ランダム透明度
+	img.style.opacity = 0.2 + Math.random() * 0.6;
 
-		let x = 0;
+	// ランダム回転
+	const rot = Math.random() * 360;
+	img.style.transform = `rotate(${rot}deg)`;
 
-		// 音検出
-		let active = false;
-		for(let i = 0; i < bufferLength; i++){
-			if(dataArray[i] > 10){
-				active = true;
-				break;
-			}
-		}
+	// ランダムアニメ速度
+	img.style.animationDuration = (4 + Math.random() * 8) + "s";
 
-		if(active){
-			lastActiveTime = Date.now();
-			sleep = false;
-		}
+	// ランダムレイヤー（奥行き）
+	img.style.zIndex = Math.floor(Math.random() * 3);
 
-		if(Date.now() - lastActiveTime > 1500){
-			sleep = true;
-		}
+	// アニメ遅延
+	img.style.animationDelay = (Math.random() * 5) + "s";
 
-		for(let i = 0; i < bufferLength; i++){
-
-			let value = dataArray[i];
-
-			// スリープ or 停止
-			if(audio.paused || sleep){
-				if(Math.random() < 0.02){
-					value = Math.random() * 20;
-				}else{
-					value = 0;
-				}
-			}
-
-			const height = Math.floor((value / 255) * centerY * 0.7 / 3) * 3;
-
-			// 上
-			ctx.fillStyle = sleep ? "#030" : "#0f0";
-			ctx.fillRect(x, centerY - height, barWidth, height);
-
-			// 下
-			ctx.fillStyle = sleep ? "#010" : "#0a0";
-			ctx.fillRect(x, centerY, barWidth, height);
-
-			x += barWidth + 1;
-		}
-
-		// 中央ライン
-		ctx.strokeStyle = sleep ? "#030" : "#0f0";
-		ctx.beginPath();
-		ctx.moveTo(0, centerY);
-		ctx.lineTo(canvas.width, centerY);
-		ctx.stroke();
-
-		// class制御
-		if(sleep){
-			canvas.classList.add("sleep");
-		}else{
-			canvas.classList.remove("sleep");
-		}
-
-		requestAnimationFrame(draw);
-	}
-
-	draw();
-
-	audio.addEventListener("play", () => {
-		audioCtx.resume();
-		canvas.classList.add("active");
-	});
-
-	audio.addEventListener("pause", () => {
-		canvas.classList.remove("active");
-	});
-
-	audio.addEventListener("ended", () => {
-		canvas.classList.remove("active");
-	});
-
-	// BG
-	const bg = document.getElementById("bg-gifs");
-	bg.style.backgroundImage = `url(../images/${vb.bg})`;
-	bg.style.backgroundSize = "cover";
+	bg.appendChild(img);
 }
 
-// ===============================
-function formatTime(sec) {
-	const m = Math.floor(sec / 60);
-	const s = Math.floor(sec % 60);
-	return `${m.toString().padStart(2,"0")}:${s.toString().padStart(2,"0")}`;
+	/* ===================== SLIDES ===================== */
+
+	let i = 0;
+	const slides = vb.images?.length ? vb.images : [vb.image];
+
+	const img = document.getElementById("vb-slide-image");
+	const dots = document.getElementById("vb-dots");
+
+	const prevBtn = document.getElementById("img-prev");
+	const nextBtn = document.getElementById("img-next");
+
+	function render(){
+
+		img.src = slides[i];
+
+		dots.innerHTML = "";
+
+		slides.forEach((_, n) => {
+			const d = document.createElement("div");
+			d.className = "vb-dot" + (n === i ? " active" : "");
+			d.onclick = () => { i = n; render(); };
+			dots.appendChild(d);
+		});
+	}
+
+	render();
+
+	prevBtn.onclick = () => {
+		i = (i - 1 + slides.length) % slides.length;
+		render();
+	};
+
+	nextBtn.onclick = () => {
+		i = (i + 1) % slides.length;
+		render();
+	};
+
+	/* ===================== MODAL ===================== */
+
+	const modal = document.getElementById("vb-modal");
+	const mimg = document.getElementById("vb-modal-img");
+
+	img.onclick = () => {
+		modal.style.display = "flex";
+		mimg.src = slides[i];
+	};
+
+	modal.onclick = () => {
+		modal.style.display = "none";
+	};
+
+	/* ===================== MOBILE SWIPE ===================== */
+
+	let startX = 0;
+
+img.addEventListener("touchstart", (e) => {
+	startX = e.touches[0].clientX;
+}, { passive: true });
+
+img.addEventListener("touchmove", (e) => {
+	// スクロール・ドラッグ完全停止
+	e.preventDefault();
+}, { passive: false });
+
+img.addEventListener("touchend", (e) => {
+
+	const endX = e.changedTouches[0].clientX;
+	const diff = endX - startX;
+
+	if (Math.abs(diff) < 40) return;
+
+	if (diff < 0) {
+		i = (i + 1) % slides.length;
+	} else {
+		i = (i - 1 + slides.length) % slides.length;
+	}
+
+	render();
+});
+}
+
+/* ===================== FORMAT ===================== */
+
+function formatTime(s){
+	const m = Math.floor(s/60);
+	const r = Math.floor(s%60);
+	return `${m.toString().padStart(2,"0")}:${r.toString().padStart(2,"0")}`;
 }
