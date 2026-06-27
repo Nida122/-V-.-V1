@@ -1,174 +1,301 @@
-/* VB ページ */
+/* ===================== BASE (VB ONLY OVERRIDE) ===================== */
 
+/* VBページ専用レイアウト */
 .vb-page {
-	max-width: 600px;
-	margin: 40px auto;
-	text-align: center;
+    max-width: 700px;
+    margin: 40px auto;
+    text-align: center;
 }
 
+/* body cursor制御はstyle.cssと競合するため削除
+   → ここでは触らない（重要） */
+
+/* ===================== ACCESS ===================== */
+
+#access-screen {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    color: #0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    z-index: 9999;
+}
+
+/* ===================== BACKGROUND ===================== */
+
+/* NOTE: #bg-gifs / .bg-gif は style.css と競合するため削除せず上書きのみ */
+
+.bg-gif {
+    image-rendering: pixelated;
+    will-change: transform;
+    animation: float 6s infinite ease-in-out;
+    filter: contrast(1.1);
+}
+
+@keyframes float {
+    0%   { transform: translate(0,0) scale(1); }
+    50%  { transform: translate(15px,-15px) scale(1.08); }
+    100% { transform: translate(0,0) scale(1); }
+}
+
+/* ===================== SCANLINES (VB OVERRIDE ONLY) ===================== */
+
+/* style.cssと同名クラスのため差分のみ保持 */
+.scanlines {
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 2px,
+        rgba(0,255,0,0.03) 3px
+    );
+}
+
+/* ===================== VB MAIN INFO ===================== */
+
 #vb-id {
-	font-size: 12px;
-	color: #888;
-	letter-spacing: 1px;
+    font-size: 12px;
+    color: #888;
+    letter-spacing: 1px;
 }
 
 #vb-name {
-	font-size: 20px;
-	margin-bottom: 10px;
+    font-size: 22px;
+    margin: 10px 0;
 }
 
 #vb-image {
-	display: block;
-	width: 40%;
-	max-width: 260px;
-	margin: 20px auto;
-	border: 1px solid #444;
-	background: #111;
-	padding: 4px;
+    width: 45%;
+    max-width: 260px;
+    margin: 20px auto;
+    border: 1px solid #444;
+    background: #111;
+    padding: 4px;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 #vb-desc {
-	color: #aaa;
-	font-size: 13px;
-	margin-bottom: 20px;
+    color: #aaa;
+    font-size: 13px;
+    max-width: 500px;
+    margin: 10px auto 25px;
+    white-space: pre-wrap;
 }
 
-/* PLAYER */
+/* ===================== VB SPEC ===================== */
+
+.vb-spec {
+    width: 60%;
+    max-width: 420px;
+    margin: 20px auto;
+    background: #111;
+    border: 1px solid #333;
+    padding: 12px;
+    font-size: 12px;
+}
+
+.spec-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px dashed #222;
+}
+
+.spec-row:last-child {
+    border-bottom: none;
+}
+
+.label {
+    color: #0f0;
+}
+
+/* ===================== PLAYER ===================== */
 
 .vb-player {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	margin: 20px auto 10px;
-	width: 60%;
-	max-width: 320px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 70%;
+    max-width: 320px;
+    margin: 20px auto;
 }
 
 #vb-play {
-	background: black;
-	color: #0f0;
-	border: 1px solid #0f0;
-	padding: 5px 10px;
-	cursor: pointer;
-	font-family: monospace;
+    background: #000;
+    color: #0f0;
+    border: 1px solid #0f0;
+    padding: 6px 10px;
+    font-family: monospace;
+    transition: 0.2s;
 }
 
 #vb-play:hover {
-	background: #0f0;
-	color: black;
+    background: #0f0;
+    color: #000;
 }
 
 .vb-bar {
-	flex: 1;
-	height: 6px;
-	background: #222;
-	border: 1px solid #555;
-	position: relative;
-	cursor: pointer;
+    flex: 1;
+    height: 6px;
+    background: #222;
+    border: 1px solid #444;
+    cursor: pointer;
 }
 
 #vb-progress {
-	height: 100%;
-	width: 0%;
-	background: #0f0;
-	box-shadow: 0 0 5px #0f0;
+    height: 100%;
+    width: 0%;
+    background: #0f0;
+    box-shadow: 0 0 6px #0f0;
 }
 
 #vb-time {
-	font-size: 11px;
-	color: #888;
-	min-width: 40px;
-	text-align: right;
+    font-size: 11px;
+    color: #888;
+    min-width: 40px;
 }
 
-/* VISUALIZER */
+/* ===================== VISUALIZER ===================== */
 
 #vb-visualizer {
-	display: block;
-	margin: 10px auto 20px;
-	width: 60%;
-	max-width: 320px;
-	height: 40px;
-
-	background: black;
-	border: 1px solid #0f0;
-
-	image-rendering: pixelated;
-
-	box-shadow:
-		0 0 8px #0f0,
-		inset 0 0 6px #0f0;
-
-	position: relative;
-	overflow: hidden;
+    width: 70%;
+    max-width: 320px;
+    height: 40px;
+    margin: 10px auto;
+    background: #000;
+    border: 1px solid #0f0;
+    box-shadow: 0 0 8px #0f0;
 }
 
-/* スキャンライン */
-#vb-visualizer::after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background: repeating-linear-gradient(
-		to bottom,
-		transparent,
-		transparent 2px,
-		rgba(0,255,0,0.08) 3px
-	);
-	pointer-events: none;
-}
-
-/* 再生中 */
-#vb-visualizer.active {
-	box-shadow:
-		0 0 12px #0f0,
-		inset 0 0 10px #0f0;
-}
-
-/* スリープ状態 */
 #vb-visualizer.sleep {
-	opacity: 0.35;
-	filter: blur(0.5px);
-	box-shadow:
-		0 0 3px #0f0,
-		inset 0 0 3px #0f0;
+    opacity: 0.4;
+    filter: blur(0.5px);
 }
 
-/* DL / BACK / ACCESS */
+/* ===================== VIDEO ===================== */
+
+#vb-video-box {
+    width: 80%;
+    max-width: 560px;
+    margin: 30px auto;
+}
+
+#vb-video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: 1px solid #0f0;
+}
+
+/* ===================== GALLERY ===================== */
+
+#vb-gallery {
+    width: 80%;
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+#vb-slide-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#vb-slide-image {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    background: #111;
+    border: 1px solid #444;
+    padding: 4px;
+    user-select: none;
+    -webkit-user-drag: none;
+    touch-action: pan-y;
+}
+
+#vb-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.vb-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #333;
+}
+
+.vb-dot.active {
+    background: #0f0;
+    box-shadow: 0 0 6px #0f0;
+}
+
+/* arrows */
+#img-prev,
+#img-next {
+    background: transparent;
+    color: #0f0;
+    border: 1px solid #0f0;
+    padding: 4px 8px;
+    font-family: monospace;
+    transition: 0.2s;
+    opacity: 0.85;
+}
+
+#img-prev:hover,
+#img-next:hover {
+    background: #0f0;
+    color: #000;
+    box-shadow: 0 0 10px #0f0;
+    transform: scale(1.05);
+}
+
+/* mobile hide arrows */
+@media (hover: none) and (pointer: coarse) {
+    #img-prev,
+    #img-next {
+        display: none;
+    }
+}
+
+/* ===================== MODAL ===================== */
+
+#vb-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#vb-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 1px solid #0f0;
+}
+
+/* ===================== DOWNLOAD ===================== */
 
 #vb-download {
-	display: block;
-	text-align: center;
-	border: 1px solid #777;
-	padding: 8px;
-	color: #fff;
-	text-decoration: none;
-	margin-top: 15px;
+    display: block;
+    width: 120px;
+    margin: 20px auto;
+    padding: 8px;
+    border: 1px solid #777;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    transition: 0.2s;
 }
 
 #vb-download:hover {
-	background: #fff;
-	color: #000;
-}
-
-.vb-page a[href*="characters"] {
-	font-size: 12px;
-	color: #888;
-	text-decoration: none;
-	display: inline-block;
-	margin-top: 20px;
-}
-
-#access-screen {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: black;
-	color: #0f0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-family: monospace;
-	z-index: 9999;
+    background: #fff;
+    color: #000;
 }
