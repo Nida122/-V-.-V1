@@ -17,52 +17,88 @@
 	<div class="scanlines"></div>
 	<canvas id="particle-canvas"></canvas>
 
-	<!-- アクセス演出 -->
+	<!-- アクセス -->
 	<div id="access-screen">
 		<p id="access-text">INITIALIZING...</p>
 	</div>
 
 	<div class="container" id="vb-content" style="display:none;">
 
-	<header>
-		<h1>▜▚V▙墓所. -DATA ACCESS</h1>
-	</header>
+		<header>
+			<h1>▜▚V▙墓所. -DATA ACCESS</h1>
+		</header>
 
-	<main class="vb-page">
+		<main class="vb-page">
 
-	<span id="vb-id"></span>
-	<h2 id="vb-name"></h2>
+			<!-- BASIC -->
+			<span id="vb-id"></span>
+			<h2 id="vb-name"></h2>
 
-	<img id="vb-image">
+			<img id="vb-image">
 
-	<p id="vb-desc"></p>
+			<p id="vb-desc"></p>
 
-	<!-- プレイヤー -->
-	<div class="vb-player">
-		<button id="vb-play">▶</button>
+			<!-- SPEC -->
+			<div class="vb-spec">
+				<div class="spec-row"><span class="label">TYPE</span><span id="vb-type"></span></div>
+				<div class="spec-row"><span class="label">FORMAT</span><span id="vb-format"></span></div>
+				<div class="spec-row"><span class="label">PITCH</span><span id="vb-pitch"></span></div>
+				<div class="spec-row"><span class="label">ORIGINAL</span><span id="vb-original"></span></div>
+				<div class="spec-row"><span class="label">Illustration</span><span id="vb-illustration"></span></div>
+				<div class="spec-row"><span class="label">AUTHOR</span><span id="vb-author"></span></div>
+			</div>
 
-		<div class="vb-bar">
-			<div id="vb-progress"></div>
-		</div>
+			<!-- PLAYER -->
+			<div class="vb-player">
+				<button id="vb-play">▶</button>
+				<div class="vb-bar">
+					<div id="vb-progress"></div>
+				</div>
+				<span id="vb-time">00:00</span>
+			</div>
 
-		<span id="vb-time">00:00</span>
+			<!-- VISUALIZER -->
+			<canvas id="vb-visualizer" width="320" height="40"></canvas>
+
+			<audio id="vb-audio"></audio>
+
+			<!-- YOUTUBE -->
+			<div id="vb-video-box">
+				<h3>PREVIEW</h3>
+				<iframe id="vb-video" allowfullscreen></iframe>
+			</div>
+
+			<!-- GALLERY -->
+			<div id="vb-gallery">
+
+				<div id="vb-slide-wrap">
+					<button id="img-prev">◀</button>
+
+					<img id="vb-slide-image" class="thumb">
+
+					<button id="img-next">▶</button>
+				</div>
+
+				<div id="vb-dots"></div>
+
+			</div>
+
+			<!-- MODAL -->
+			<div id="vb-modal">
+				<img id="vb-modal-img">
+			</div>
+
+			<!-- DOWNLOAD -->
+			<a id="vb-download">DL</a>
+
+			<a href="../characters.html">BACK ←</a>
+
+		</main>
+
 	</div>
 
-	<!-- 常時表示ビジュアライザ -->
-	<canvas id="vb-visualizer" width="320" height="40"></canvas>
-
-	<audio id="vb-audio"></audio>
-
-	<a id="vb-download">DL</a>
-
-	<a href="../characters.html">BACK ←</a>
-
-</main>
-
-</div>
-
-<script src="../js/effects.js"></script>
-<script src="../vb/vb.js"></script>
+	<script src="../js/effects.js"></script>
+	<script src="../vb/vb.js"></script>
 
 </body>
 </html>
