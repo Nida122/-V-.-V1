@@ -1,37 +1,85 @@
 {
   "vb-001": {
     "name": "[2do]",
-    "desc": "元現実世界の存在。八屋と名乗っていた頃から212のオトモダチ",
-    "image": "../images/characters/2dom.png",
+    "desc": "元現実世界の存在。212のオトモダチ",
+    "image": "../images/characters/m0/2do.png",
+    "images": [
+      "../images/characters/m1/2do_m.png",
+      "../images/characters/m1/2do_m1.png"
+    ],
     "audio": "../vb/audio/2do_sample.wav",
     "bg": "../images/gif/bg2.gif",
-    "dl": "https://bowlroll.net/file/351991"
+    "dl": "https://bowlroll.net/file/351991",
+
+    "type": "Voicebank",
+    "format": "単独音",
+    "pitch": "C3",
+    "original": "HUMAN",
+    "illustration": "N1VO9",
+    "author": "N1VO9",
+    "youtube": "iXcpGaAsGzI"
   },
 
   "vb-002": {
     "name": "[尾古枝]",
-    "desc": "元現実世界の存在。\n生きてる頃は笑顔の絶えない幸せな教授だったらしい。",
-    "image": "../images/characters/osabu.png",
+    "desc": "元現実世界の存在。\n昔は笑顔が絶えない人気の教授だったらしい。",
+    "image": "../images/characters/m0/osabu.png",
+    "images": [
+      "../images/characters/m1/osabu_m.png"
+    ],
     "audio": "../vb/audio/osabu_sample.wav",
     "bg": "../images/gif/bg3.gif",
-    "dl": "https://nida122.github.io/-V-.-V1/characters.html"
+    "dl": "https://nida122.github.io/-V-.-V1/characters.html",
+
+    "dob": "Voicebank",
+    "format": "単独音",
+    "pitch": "C3",
+    "original": "HUMAN",
+    "illustration": "N1VO9",
+    "author": "N1VO9",
+    "youtube": "uEIscZ7lNUQ"
   },
 
   "vb-003": {
     "name": "[212]",
-    "desc": "2doのオトモダチ。灰色からうまれ、はじめからいる",
-    "image": "../images/characters/212.png",
+    "desc": "灰色からうまれ、はじめからいる。2doのオトモダチ",
+    "image": "../images/characters/m0/212.png",
+    "images": [
+      "../images/characters/m1/212_m.png",
+      "../images/characters/m1/212_m1.png",
+      "../images/characters/m1/212_m2.png"
+    ],
     "audio": "../vb/audio/212_sample.wav",
     "bg": "../images/gif/bg4.gif",
-    "dl": "https://nida122.github.io/-V-.-V1/characters.html"
+    "dl": "https://bowlroll.net/file/355094",
+
+    "type": "OPEN UTAU",
+    "format": "単独音",
+    "pitch": "C3~C4",
+    "original": "HEX#D4D4D4",
+    "illustration": "Tokage.",
+    "author": "N1VO9",
+    "youtube": "2O5CT-v3PCY"
   },
 
   "vb-004": {
     "name": "[oso]",
-    "desc": "電子アラームから作られた電脳生成体。\n2doと212の作品で、片腕がない。",
-    "image": "../images/characters/osom.png",
+    "desc": "電子アラームから作られた電脳生成体。\n2doと212の作品で、片腕不在。",
+    "image": "../images/characters/m0/oso.png",
+    "images": [
+      "../images/characters/m1/oso_m.png",
+      "../images/characters/m1/oso_m1.png"
+    ],
     "audio": "../vb/audio/oso_sample.wav",
     "bg": "../images/gif/bg1.gif",
-    "dl": "https://nida122.github.io/-V-.-V1/characters.html"
+    "dl": "https://nida122.github.io/-V-.-V1/characters.html",
+
+    "type": "Voicebank",
+    "format": "単独音",
+    "pitch": "C3",
+    "original": "Alarm",
+    "illustration": "215",
+    "author": "N1VO9",
+    "youtube": "Fvrn_yvyZZ0"
   }
 }
