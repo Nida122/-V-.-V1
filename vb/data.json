@@ -11,7 +11,7 @@
     "bg": "../images/gif/bg2.gif",
     "dl": "https://bowlroll.net/file/351991",
 
-    "type": "Voicebank",
+    "type": "UTAU",
     "format": "単独音",
     "pitch": "C3",
     "original": "HUMAN",
@@ -22,7 +22,7 @@
 
   "vb-002": {
     "name": "[尾古枝]",
-    "desc": "元現実世界の存在。\n昔は笑顔が絶えない人気の教授だったらしい。",
+    "desc": "元現実世界の存在。\n昔は笑顔が絶えない人気の教授だった。",
     "image": "../images/characters/m0/osabu.png",
     "images": [
       "../images/characters/m1/osabu_m.png"
@@ -31,7 +31,7 @@
     "bg": "../images/gif/bg3.gif",
     "dl": "https://nida122.github.io/-V-.-V1/characters.html",
 
-    "dob": "Voicebank",
+    "type": "UTAU",
     "format": "単独音",
     "pitch": "C3",
     "original": "HUMAN",
@@ -57,14 +57,14 @@
     "format": "単独音",
     "pitch": "C3~C4",
     "original": "HEX#D4D4D4",
-    "illustration": "Tokage.",
+    "illustration": "Tokage.様",
     "author": "N1VO9",
     "youtube": "2O5CT-v3PCY"
   },
 
   "vb-004": {
     "name": "[oso]",
-    "desc": "電子アラームから作られた電脳生成体。\n2doと212の作品で、片腕不在。",
+    "desc": "電子アラームから作られた電脳生成体。\n2doと212の作品で、左目/左腕が不在。",
     "image": "../images/characters/m0/oso.png",
     "images": [
       "../images/characters/m1/oso_m.png",
@@ -72,13 +72,13 @@
     ],
     "audio": "../vb/audio/oso_sample.wav",
     "bg": "../images/gif/bg1.gif",
-    "dl": "https://nida122.github.io/-V-.-V1/characters.html",
+    "dl": "https://bowlroll.net/file/356519",
 
-    "type": "Voicebank",
+    "type": "UTAU",
     "format": "単独音",
     "pitch": "C3",
     "original": "Alarm",
-    "illustration": "215",
+    "illustration": "おジェームズ",
     "author": "N1VO9",
     "youtube": "Fvrn_yvyZZ0"
   }
